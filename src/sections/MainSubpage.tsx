@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { LiquidButton } from "../components/ui/liquid-glass-button";
+import { ParticleHero } from "../components/ui/animated-hero";
 
 const modules = [
   {
@@ -69,6 +70,7 @@ export function MainSubpage() {
   }, []);
 
   return (
+    <ParticleHero particleCount={11} className="subpage-particle-hero">
     <div id="about" className="main-subpage">
       {showWhatsApp && (
         <a
@@ -186,6 +188,38 @@ export function MainSubpage() {
           ))}
         </div>
       </section>
+      <section className="rewards-section" aria-labelledby="rewards-title">
+        <div className="rewards-heading">
+          <p className="subpage-eyebrow">RECOGNITION // OPPORTUNITY</p>
+          <h2 id="rewards-title">REWARDS</h2>
+        </div>
+        <div className="rewards-grid">
+          <article className="reward-card reward-feature">
+            <p className="reward-label">TOP 3 TEAMS</p>
+            <h3>Prestigious Internship Opportunity in VLabs</h3>
+            <p className="reward-muted">Stipend Per Month</p>
+            <strong>₹15,000</strong>
+            <p className="reward-muted">at</p>
+            <p><b>Vlabs (MoE, India)</b><br />For Each Student in the Top 3 Teams</p>
+          </article>
+          <article className="reward-card">
+            <p className="reward-label">CERTIFICATES</p>
+            <h3>For all Shortlisted Teams</h3>
+            <p className="reward-muted">Elite Finalists</p>
+            <div className="reward-stat">10 Teams Shortlisted for Final Round</div>
+          </article>
+          <article className="reward-card">
+            <p className="reward-label">NETWORKING</p>
+            <h3>Connect with like minded people.</h3>
+            <div className="reward-network-lines" aria-hidden="true"><span /><span /><span /></div>
+          </article>
+        </div>
+      </section>
+      <section className="hall-of-fame" aria-labelledby="hall-of-fame-title">
+        <p className="subpage-eyebrow">ARCHIVE // COMING SOON</p>
+        <h2 id="hall-of-fame-title">HALL OF FAME</h2>
+      </section>
     </div>
+    </ParticleHero>
   );
 }

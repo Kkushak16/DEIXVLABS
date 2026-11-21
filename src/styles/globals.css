@@ -190,6 +190,20 @@ body {
   0%, 100% { filter: brightness(1); transform: translateY(0); }
   50% { filter: brightness(1.08); transform: translateY(-2px); }
 }
+.particle-hero { position: relative; min-height: 100vh; overflow: hidden; background: #050505; }
+.particle-hero-field { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.particle-grid { position: relative; }
+.particle { position: absolute; width: .4rem; height: .4rem; border-radius: 999px; background: hsl(4 85% 60%); box-shadow: 0 0 .35rem hsl(4 85% 60%); mix-blend-mode: screen; will-change: transform; }
+.particle-hero-content { position: relative; z-index: 2; min-height: 100vh; }
+.particle-hero-default { display: grid; min-height: 100vh; place-content: center; padding: 24px; text-align: center; color: #fff; }
+.particle-hero-default h1 { margin: 0; color: #ffb4a8; font: 900 clamp(72px, 14vw, 220px)/.8 'Anton', Impact, sans-serif; }
+.particle-hero-default h2 { color: #ffd2c9; font: 300 clamp(24px, 4vw, 60px)/1 'Space Grotesk', sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+.particle-hero-default p { max-width: 620px; color: rgba(255,255,255,.65); font: 18px/1.6 'Space Grotesk', sans-serif; }
+.particle-hero-default span { color: #ff7664; font: 600 12px/1 'JetBrains Mono', monospace; letter-spacing: .25em; text-transform: uppercase; }
+.particle-hero-glow { position: absolute; width: 28rem; height: 28rem; border-radius: 999px; pointer-events: none; filter: blur(72px); opacity: .12; }
+.particle-hero-glow-one { top: 5rem; left: 5rem; background: #e11d48; }
+.particle-hero-glow-two { right: 5rem; bottom: 5rem; background: #f97316; }
+.subpage-particle-hero .main-subpage { background: rgba(19,19,22,.72); }
 
 .site-nav {
   position: fixed;
@@ -593,9 +607,26 @@ body {
 .coordinator-section a { color: #ffd700; text-decoration: none; }
 .coordinator-section a:hover { text-decoration: underline; }
 .footer-marquee { position: fixed; right: 0; bottom: 0; left: 0; z-index: 40; width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,.12); background: #000; }
-.footer-marquee-track { display: flex; width: max-content; align-items: center; gap: 42px; padding: 13px 0; white-space: nowrap; font: 600 12px/18px 'JetBrains Mono', monospace; letter-spacing: .16em; animation: footer-marquee 22s linear infinite; }
-.footer-marquee-track span:nth-child(even) { color: #ffd700; }
-@keyframes footer-marquee { to { transform: translateX(-33.333%); } }
+.footer-marquee-track { display: flex; width: max-content; align-items: stretch; padding: 13px 0; white-space: nowrap; animation: footer-marquee 24s linear infinite; }
+.footer-marquee-group { display: flex; flex-shrink: 0; gap: 64px; padding-right: 64px; color: #fff; font: 600 12px/18px 'JetBrains Mono', monospace; letter-spacing: .16em; }
+.footer-marquee-group span::after { content: '✦'; margin-left: 64px; color: #ffd700; }
+@keyframes footer-marquee { to { transform: translateX(-50%); } }
+.rewards-section { width: min(1240px, calc(100% - 48px)); margin: 0 auto; padding: 30px 0 100px; }
+.rewards-heading { margin-bottom: 28px; }
+.rewards-heading h2, .hall-of-fame h2 { margin: 0; color: #e5e1e6; font: 400 clamp(44px, 7vw, 86px)/.9 'Anton', Impact, sans-serif; letter-spacing: .03em; }
+.rewards-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
+.reward-card { min-height: 280px; padding: 26px; border: 1px solid rgba(255,215,0,.18); border-radius: 22px; background: rgba(27,27,30,.78); }
+.reward-feature { background: linear-gradient(135deg, rgba(255,215,0,.16), rgba(27,27,30,.78) 55%); }
+.reward-label { margin: 0 0 18px; color: #ffd700; font: 600 11px/16px 'JetBrains Mono', monospace; letter-spacing: .14em; }
+.reward-card h3 { margin: 0 0 18px; color: #fff; font: 400 clamp(24px, 3vw, 40px)/1 'Anton', Impact, sans-serif; }
+.reward-muted { margin: 0 0 8px; color: #d0c6ab; font: 14px/20px 'Space Grotesk', sans-serif; }
+.reward-card > strong { display: block; margin: 5px 0; color: #ffd700; font: 400 clamp(42px, 5vw, 70px)/.9 'Anton', Impact, sans-serif; }
+.reward-card p b, .reward-stat { color: #fff; font: 600 15px/22px 'Space Grotesk', sans-serif; }
+.reward-network-lines { display: grid; gap: 12px; margin-top: 42px; }
+.reward-network-lines span { height: 2px; background: linear-gradient(90deg, #ffd700, transparent); }
+.reward-network-lines span:nth-child(2) { width: 75%; }
+.reward-network-lines span:nth-child(3) { width: 48%; }
+.hall-of-fame { min-height: 330px; display: grid; place-content: center; width: min(1240px, calc(100% - 48px)); margin: 0 auto; padding: 70px 24px 120px; border-top: 1px solid rgba(255,215,0,.12); text-align: center; }
 
 @media (max-width: 900px) { .track-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) {
@@ -621,6 +652,9 @@ body {
   .whatsapp-float { right: 12px; bottom: 64px; padding: 11px 13px 11px 11px; }
   .site-footer { min-height: 430px; padding: 48px 16px 76px; }
   .coordinator-section { grid-template-columns: 1fr; gap: 34px; }
+  .rewards-section, .hall-of-fame { width: calc(100% - 32px); }
+  .rewards-grid { grid-template-columns: 1fr; }
+  .reward-card { min-height: 240px; }
 }
 
 /* Glitch keyframes */
