@@ -162,7 +162,7 @@ body {
   position: absolute;
   z-index: 15;
   top: auto;
-  right: 22px;
+  right: clamp(56px, 12vw, 160px);
   bottom: clamp(176px, 21vh, 210px);
   left: auto;
   display: flex;
@@ -191,9 +191,9 @@ body {
   50% { filter: brightness(1.08); transform: translateY(-2px); }
 }
 .particle-hero { position: relative; min-height: 100vh; overflow: hidden; background: #050505; }
-.particle-hero-field { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.particle-hero-field { position: absolute; z-index: 1; inset: 0 0 auto; height: 100vh; display: flex; align-items: center; justify-content: center; pointer-events: none; }
 .particle-grid { position: relative; }
-.particle { position: absolute; width: .4rem; height: .4rem; border-radius: 999px; background: hsl(4 85% 60%); box-shadow: 0 0 .35rem hsl(4 85% 60%); mix-blend-mode: screen; will-change: transform; }
+.particle { position: absolute; width: .52rem; height: .52rem; border-radius: 999px; background: hsl(4 95% 70%); box-shadow: 0 0 .65rem hsl(4 95% 60%), 0 0 1.5rem rgba(255,80,50,.4); mix-blend-mode: screen; will-change: transform; }
 .particle-hero-content { position: relative; z-index: 2; min-height: 100vh; }
 .particle-hero-default { display: grid; min-height: 100vh; place-content: center; padding: 24px; text-align: center; color: #fff; }
 .particle-hero-default h1 { margin: 0; color: #ffb4a8; font: 900 clamp(72px, 14vw, 220px)/.8 'Anton', Impact, sans-serif; }
@@ -203,7 +203,7 @@ body {
 .particle-hero-glow { position: absolute; width: 28rem; height: 28rem; border-radius: 999px; pointer-events: none; filter: blur(72px); opacity: .12; }
 .particle-hero-glow-one { top: 5rem; left: 5rem; background: #e11d48; }
 .particle-hero-glow-two { right: 5rem; bottom: 5rem; background: #f97316; }
-.subpage-particle-hero .main-subpage { background: rgba(19,19,22,.72); }
+.subpage-particle-hero .main-subpage { position: relative; z-index: 2; background: transparent; }
 
 .site-nav {
   position: fixed;
@@ -529,7 +529,7 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #0e0e11;
+  background: rgba(14,14,17,.66);
 }
 .subpage-grid {
   position: absolute;
@@ -607,10 +607,10 @@ body {
 .coordinator-section a { color: #ffd700; text-decoration: none; }
 .coordinator-section a:hover { text-decoration: underline; }
 .footer-marquee { position: fixed; right: 0; bottom: 0; left: 0; z-index: 40; width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,.12); background: #000; }
-.footer-marquee-track { display: flex; width: max-content; align-items: stretch; padding: 13px 0; white-space: nowrap; animation: footer-marquee 24s linear infinite; }
+.footer-marquee-track { display: flex; width: max-content; align-items: stretch; padding: 13px 0; white-space: nowrap; animation: footer-marquee 18s linear infinite; }
 .footer-marquee-group { display: flex; flex-shrink: 0; gap: 64px; padding-right: 64px; color: #fff; font: 600 12px/18px 'JetBrains Mono', monospace; letter-spacing: .16em; }
 .footer-marquee-group span::after { content: '✦'; margin-left: 64px; color: #ffd700; }
-@keyframes footer-marquee { to { transform: translateX(-50%); } }
+@keyframes footer-marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 .rewards-section { width: min(1240px, calc(100% - 48px)); margin: 0 auto; padding: 30px 0 100px; }
 .rewards-heading { margin-bottom: 28px; }
 .rewards-heading h2, .hall-of-fame h2 { margin: 0; color: #e5e1e6; font: 400 clamp(44px, 7vw, 86px)/.9 'Anton', Impact, sans-serif; letter-spacing: .03em; }
@@ -643,7 +643,7 @@ body {
   .module-heading > p { margin-top: 18px; }
   .module-grid { grid-template-columns: 1fr; }
   .subpage-intro { min-height: 560px; }
-  .hero-logo-box { right: 12px; bottom: 132px; left: auto; width: 270px; gap: 8px; padding: 8px 10px; }
+  .hero-logo-box { right: 28px; bottom: 132px; left: auto; width: 270px; gap: 8px; padding: 8px 10px; }
   .hero-logo-box img { max-height: 52px; }
   .hero-logo-x { font-size: 26px; }
   .subpage-about-grid, .rules-criteria { grid-template-columns: 1fr; }
