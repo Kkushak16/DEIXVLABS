@@ -80,10 +80,9 @@ export const WordsPullUpMultiStyle = ({ segments, className = "", style }: Words
 };
 
 const navItems = [
-  { label: "Our story", href: "#about" },
-  { label: "Collective", href: "#about" },
-  { label: "Workshops", href: "#roadmap" },
-  { label: "Programs", href: "#themes" },
+  { label: "About", href: "#about" },
+  { label: "Rules & Regulations", href: "#rules" },
+  { label: "Themes", href: "#modules" },
   { label: "Inquiries", href: "mailto:hackathon@dei.ac.in" },
 ];
 

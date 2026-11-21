@@ -117,7 +117,7 @@ export function MainSubpage() {
         </div>
       </section>
 
-      <section className="rules-criteria" aria-label="Rules and judging criteria">
+      <section id="rules" className="rules-criteria" aria-label="Rules and judging criteria">
         <div className="rules-panel">
           <p className="subpage-eyebrow">EVENT FRAMEWORK</p>
           <h2>RULES &amp; REGULATIONS</h2>
