@@ -1,0 +1,49 @@
+[
+  {
+    "rank": "Winner",
+    "title": "Champion",
+    "amount": "TBA",
+    "perks": [
+      "Grand Trophy & Certificates",
+      "Direct Entry to Virtual Labs Internship Program",
+      "Exclusive Tech Goodies & Cloud Credits",
+      "Mentorship with MoE / IIT Experts"
+    ],
+    "colorClass": "text-secondary border-secondary shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+  },
+  {
+    "rank": "First Runner-up",
+    "title": "First Runner-Up",
+    "amount": "TBA",
+    "perks": [
+      "Silver Trophy & Certificates",
+      "Fast-track Interview for Virtual Labs Research Roles",
+      "Exciting Goodies & Swag Kit",
+      "Project Incubation Support at DEI"
+    ],
+    "colorClass": "text-primary-hover border-primary shadow-[0_0_16px_rgba(37,99,235,0.25)]"
+  },
+  {
+    "rank": "Second Runner-up",
+    "title": "Second Runner-Up",
+    "amount": "TBA",
+    "perks": [
+      "Bronze Trophy & Certificates",
+      "Internship Opportunity Assessment",
+      "Tech Gadgets & Swag Packs",
+      "Virtual Labs Project Showcase Feature"
+    ],
+    "colorClass": "text-tertiary border-tertiary shadow-[0_0_14px_rgba(96,165,250,0.2)]"
+  },
+  {
+    "rank": "Special Prize",
+    "title": "Most Innovative Lab Concept",
+    "amount": "TBA",
+    "perks": [
+      "Special Recognition Certificate",
+      "MoE Innovation Citation",
+      "Opportunity to integrate into official Virtual Labs curriculum"
+    ],
+    "colorClass": "text-accent-purple border-accent-purple shadow-[0_0_14px_rgba(168,85,247,0.2)]"
+  }
+]

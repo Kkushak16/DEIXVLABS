@@ -1,0 +1,37 @@
+[
+  {
+    "id": "register",
+    "label": "Register",
+    "date": "Now",
+    "mode": "online",
+    "description": "Sign up via the Google Form"
+  },
+  {
+    "id": "round1",
+    "label": "Round 1",
+    "date": "TBD",
+    "mode": "online",
+    "description": "Submit your idea and prototype online"
+  },
+  {
+    "id": "shortlist",
+    "label": "Shortlist",
+    "date": "TBD",
+    "mode": "online",
+    "description": "Top teams are announced"
+  },
+  {
+    "id": "round2",
+    "label": "Round 2",
+    "date": "TBD",
+    "mode": "offline",
+    "description": "Present at DEI, Agra"
+  },
+  {
+    "id": "results",
+    "label": "Results",
+    "date": "TBD",
+    "mode": "offline",
+    "description": "Winners are announced"
+  }
+]

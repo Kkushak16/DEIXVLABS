@@ -1,0 +1,52 @@
+[
+  {
+    "id": "R-01",
+    "title": "Team Composition",
+    "text": "Teams must consist of 2 to 4 members. Interdisciplinary and multi-college teams are permitted."
+  },
+  {
+    "id": "R-02",
+    "title": "Student Eligibility",
+    "text": "Open to all students currently enrolled in recognized colleges, polytechnics, or universities across India."
+  },
+  {
+    "id": "R-03",
+    "title": "Registration Gate",
+    "text": "All team members must be registered via the official Google Form prior to the deadline."
+  },
+  {
+    "id": "R-04",
+    "title": "Round 1 Online Mode",
+    "text": "Round 1 is fully online. Teams must submit idea synopses, system design, and demonstration videos/code repositories."
+  },
+  {
+    "id": "R-05",
+    "title": "Round 2 On-Campus",
+    "text": "Shortlisted teams will be invited to the physical hackathon at Dayalbagh Educational Institute, Agra."
+  },
+  {
+    "id": "R-06",
+    "title": "Complimentary Stay",
+    "text": "Accommodation for the offline finals is provided by DEI for all shortlisted outstation team members."
+  },
+  {
+    "id": "R-07",
+    "title": "Track Alignment",
+    "text": "Projects must target one of the announced problem statements / tracks or propose a novel virtual lab simulation."
+  },
+  {
+    "id": "R-08",
+    "title": "Original Work & OSS",
+    "text": "Code must be developed during the hackathon. Standard open-source libraries are permitted with proper attribution."
+  },
+  {
+    "id": "R-09",
+    "title": "Academic Integrity",
+    "text": "Plagiarism, submission of pre-built commercial software, or code theft will lead to immediate disqualification."
+  },
+  {
+    "id": "R-10",
+    "title": "Judicial Finality",
+    "text": "Decisions of the joint DEI x VLABS evaluation jury are final and binding on all participating teams."
+  }
+]

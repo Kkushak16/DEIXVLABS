@@ -1,0 +1,66 @@
+[
+  {
+    "code": "TF-01",
+    "slug": "tf-01",
+    "title": "AI & Robotics",
+    "icon": "smart_toy",
+    "summary": "Autonomous systems, neural architectures, embodied robotics, and physical AI computing.",
+    "brief": "Design and develop innovative solutions that leverage artificial intelligence and robotics to solve real-world problems. Focus areas include autonomous navigation, computer vision, natural language processing, and human-robot interaction."
+  },
+  {
+    "code": "TF-02",
+    "slug": "tf-02",
+    "title": "Space & Aerospace",
+    "icon": "rocket_launch",
+    "summary": "Satellite systems, orbital mechanics, aerospace engineering, and space exploration tech.",
+    "brief": "Create solutions for space exploration and aerospace engineering challenges. Projects may involve satellite communication, orbital simulation, propulsion systems, or space debris tracking."
+  },
+  {
+    "code": "TF-03",
+    "slug": "tf-03",
+    "title": "Quantum Computing",
+    "icon": "memory",
+    "summary": "Quantum algorithms, quantum simulation, error correction, and quantum-classical hybrid systems.",
+    "brief": "Explore the frontiers of quantum computing by developing algorithms, simulations, or applications that leverage quantum mechanical principles for computational advantage."
+  },
+  {
+    "code": "TF-04",
+    "slug": "tf-04",
+    "title": "Cybersecurity",
+    "icon": "security",
+    "summary": "Threat detection, cryptographic protocols, network security, and privacy-preserving computation.",
+    "brief": "Build tools and systems that enhance digital security. Focus on threat detection, vulnerability assessment, secure communication protocols, or privacy-preserving technologies."
+  },
+  {
+    "code": "TF-05",
+    "slug": "tf-05",
+    "title": "Green Tech",
+    "icon": "eco",
+    "summary": "Renewable energy, carbon tracking, sustainable materials, and environmental monitoring.",
+    "brief": "Develop technology solutions that address environmental challenges. Projects may focus on renewable energy optimization, carbon footprint tracking, waste management, or environmental monitoring systems."
+  },
+  {
+    "code": "TF-06",
+    "slug": "tf-06",
+    "title": "Biotech & Health",
+    "icon": "biotech",
+    "summary": "Medical diagnostics, drug discovery, genomics, and digital health platforms.",
+    "brief": "Create innovative solutions at the intersection of biology and technology. Areas include medical diagnostics, telemedicine, drug discovery simulation, genomic analysis, and health monitoring systems."
+  },
+  {
+    "code": "TF-07",
+    "slug": "tf-07",
+    "title": "Fintech & Web3",
+    "icon": "currency_bitcoin",
+    "summary": "Decentralised finance, blockchain protocols, digital payments, and financial inclusion.",
+    "brief": "Build financial technology solutions leveraging blockchain, smart contracts, or traditional fintech approaches. Focus on financial inclusion, secure transactions, or decentralized applications."
+  },
+  {
+    "code": "TF-08",
+    "slug": "tf-08",
+    "title": "Gaming & XR",
+    "icon": "sports_esports",
+    "summary": "Immersive experiences, game engines, AR/VR applications, and interactive simulations.",
+    "brief": "Design and develop immersive experiences using game engines, augmented reality, virtual reality, or mixed reality technologies. Applications may include educational simulations, training systems, or interactive entertainment."
+  }
+]
