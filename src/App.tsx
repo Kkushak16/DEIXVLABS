@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 import { GastlyCursor } from './components/GastlyCursor';
+import { SmoothScroll } from './components/SmoothScroll';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
@@ -29,6 +30,7 @@ export default function App() {
       </main>
       <Footer />
       <GastlyCursor />
+      <SmoothScroll />
     </div>
   );
 }

@@ -727,7 +727,9 @@ body {
 .main-subpage .faq-item p { margin: 0; padding: 0 20px 18px; color: #d0c6ab; font: 14px/22px 'Space Grotesk', sans-serif; clip-path: none; animation: none; }
 
 /* Gastly cursor (Spline scene, see GastlyCursor.tsx) */
-.gastly-cursor-canvas { position: fixed; inset: 0; z-index: 9999; width: 100vw !important; height: 100vh !important; pointer-events: none; }
+.gastly-cursor-canvas { position: fixed; inset: 0; z-index: 9999; width: 100vw !important; height: 100vh !important; pointer-events: none; opacity: 0; transition: opacity .45s ease; }
+.gastly-cursor-canvas.is-ready { opacity: 1; }
 .gastly-cursor-active, .gastly-cursor-active * { cursor: none !important; }
-.spline-credit { margin: 28px auto 0; width: min(1040px, 100%); color: #8a8270; font: 12px/18px 'Space Grotesk', sans-serif; }
-.spline-credit a { color: inherit; text-decoration: underline; }
+
+/* Typewriter reveals wait until scrolled into view (SmoothScroll.tsx adds the classes) */
+.reveal-on-scroll :is(.typewriter-reveal, .main-subpage h2, .main-subpage h3, .main-subpage p, .main-subpage .module-card-top, .main-subpage .reward-label, .main-subpage .reward-muted, .main-subpage .reward-stat):not(.is-revealed) { animation-play-state: paused; }

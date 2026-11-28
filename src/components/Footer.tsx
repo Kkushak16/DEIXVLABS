@@ -29,12 +29,6 @@ export function Footer() {
           <p className="typewriter-reveal"><a href="mailto:kushakdohare16@gmail.com">kushakdohare16@gmail.com</a><br /><a href="tel:+917819952826">+91 7819952826</a></p>
         </div>
       </section>
-      <p className="spline-credit">
-        Cursor animation{" "}
-        <a href="https://spline.design" target="_blank" rel="noopener noreferrer">
-          made with Spline<span className="sr-only"> (opens in new tab)</span>
-        </a>
-      </p>
       <div className="footer-marquee" aria-hidden="true">
         <div className="footer-marquee-track">
           <div className="footer-marquee-group">

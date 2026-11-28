@@ -30,31 +30,38 @@ export function ParticleHero({
     const particles: { el: HTMLDivElement; dampening: number; scale: number }[] = [];
     const rows = Math.max(6, particleCount);
     const totalParticles = rows * rows;
-    const fragment = document.createDocumentFragment();
+    let built = false;
 
-    for (let i = 0; i < totalParticles; i += 1) {
-      const particle = document.createElement("div");
-      const row = Math.floor(i / rows);
-      const col = i % rows;
-      const center = (rows - 1) / 2;
-      const distance = Math.hypot(row - center, col - center);
-      const scale = Math.max(0.1, 1.2 - distance * 0.12);
-      const opacity = Math.max(0.05, 1 - distance * 0.1);
+    // Particles are built the first time the field nears the viewport, so the
+    // ~300 extra elements never add to the page's first layout.
+    const build = () => {
+      built = true;
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < totalParticles; i += 1) {
+        const particle = document.createElement("div");
+        const row = Math.floor(i / rows);
+        const col = i % rows;
+        const center = (rows - 1) / 2;
+        const distance = Math.hypot(row - center, col - center);
+        const scale = Math.max(0.1, 1.2 - distance * 0.12);
+        const opacity = Math.max(0.05, 1 - distance * 0.1);
 
-      particle.className = "particle";
-      particle.style.left = `${col * 1.8}rem`;
-      particle.style.top = `${row * 1.8}rem`;
-      particle.style.opacity = `${opacity}`;
-      particle.style.transform = `scale(${scale})`;
-      particle.style.zIndex = `${Math.round(totalParticles - distance * 5)}`;
-      fragment.appendChild(particle);
-      particles.push({ el: particle, dampening: Math.max(0.3, 1 - distance * 0.08), scale });
-    }
+        particle.className = "particle";
+        particle.style.left = `${col * 1.8}rem`;
+        particle.style.top = `${row * 1.8}rem`;
+        particle.style.opacity = `${opacity}`;
+        particle.style.transform = `scale(${scale})`;
+        particle.style.zIndex = `${Math.round(totalParticles - distance * 5)}`;
+        fragment.appendChild(particle);
+        particles.push({ el: particle, dampening: Math.max(0.3, 1 - distance * 0.08), scale });
+      }
 
-    container.replaceChildren(fragment);
+      container.replaceChildren(fragment);
+    };
+
     let animationFrame = 0;
     let running = false;
-    let onScreen = true;
+    let onScreen = false;
     const startTime = performance.now();
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -76,15 +83,16 @@ export function ParticleHero({
     // Only animate while the field is on screen, the tab is visible and the
     // user has not asked for reduced motion.
     const sync = () => {
-      const shouldRun = onScreen && !document.hidden && !reducedMotion.matches;
+      const shouldRun = built && onScreen && !document.hidden && !reducedMotion.matches;
       if (shouldRun && !running) animationFrame = requestAnimationFrame(animate);
       if (!shouldRun && running) cancelAnimationFrame(animationFrame);
       running = shouldRun;
     };
     const observer = new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
+      if (onScreen && !built) build();
       sync();
-    });
+    }, { rootMargin: "300px 0px" });
     observer.observe(container);
     document.addEventListener("visibilitychange", sync);
     reducedMotion.addEventListener("change", sync);

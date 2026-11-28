@@ -29,13 +29,9 @@
     <meta name="twitter:description" content="National student hackathon: 8 innovation tracks, internship prizes, free registration. Round 1 Online → Round 2 at DEI, Agra." />
     <meta name="twitter:image" content="https://deixvlabs.dei.ac.in/images/hero/hero-banner.jpg" />
 
-    <!-- Preconnect for fonts performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Fonts: loaded without blocking first paint (display=swap) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+    <!-- Self-hosted fonts: preload the two used on the first screen so text does not swap and reflow -->
+    <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD: Event Schema (SEO + AEO) -->
     <script type="application/ld+json">
