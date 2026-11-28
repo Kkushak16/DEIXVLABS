@@ -1,0 +1,25 @@
+# DEI x VLABS Hackathon '26
+
+> A national student hackathon organised by Dayalbagh Educational Institute (DEI), Agra, and Virtual Labs, an initiative of the Ministry of Education (MoE), Govt of India. Teams build working prototypes of next-generation virtual laboratory experiments.
+
+## Key facts
+
+- Organisers: Dayalbagh Educational Institute (Deemed to be University), Agra, and Virtual Labs (MoE, Govt of India, under the National Mission on Education through ICT).
+- Eligibility: engineering and science students (UG, PG or Diploma).
+- Team size: 1 to 4 members.
+- Submission: a presentation on the official PPT template plus a working MVP or prototype.
+- Dates: registration starts 18 January; submission deadline 30 January; shortlist announced 2 February; offline final round 7 February at DEI, Agra.
+- Final round: 10 shortlisted teams compete offline at Dayalbagh Educational Institute, Agra. Accommodation is provided by the college.
+- Judging: innovation and creativity 30%, technical complexity 30%, UX and interactivity 25%, alignment to theme 15%.
+- Rewards: each student in the top 3 teams gets a Virtual Labs internship with a ₹15,000 per month stipend; certificates for all shortlisted teams.
+- Contact: deivlabshackathon@gmail.com
+
+## Pages
+
+- [Home](https://deixvlabs.dei.ac.in/): about DEI and Virtual Labs, rules, judging criteria, roadmap, themes, rewards, FAQ and contacts.
+- [Themes](https://deixvlabs.dei.ac.in/themes): provisional innovation tracks.
+
+## Related
+
+- [Dayalbagh Educational Institute](https://www.dei.ac.in/dei/)
+- [Virtual Labs](https://www.vlab.co.in)

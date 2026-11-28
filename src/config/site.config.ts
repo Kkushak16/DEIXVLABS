@@ -33,3 +33,6 @@ export const site = {
     participatingInstitutes: "15+",
   },
 } as const;
+
+/** False while registrationUrl is still the placeholder form; Register links stay hidden until a real form URL is set. */
+export const hasRegistrationLink = !site.registrationUrl.includes("PLACEHOLDER");

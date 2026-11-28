@@ -1,34 +1,46 @@
 [
   {
-    "q": "Who can participate?",
-    "a": "The hackathon is open to students currently enrolled in any recognised college or university across India."
+    "q": "What is DEI x VLABS Hackathon '26?",
+    "a": "A national student hackathon organised by Dayalbagh Educational Institute (DEI), Agra, and Virtual Labs, an MoE Govt of India initiative. Teams build working prototypes of next-generation virtual laboratory experiments."
   },
   {
-    "q": "Is there a registration fee?",
-    "a": "No, participation is completely free. Register through the official Google Form before the deadline."
+    "q": "Who can participate?",
+    "a": "Engineering and science students enrolled in UG, PG or Diploma programmes."
   },
   {
     "q": "What is the team size?",
-    "a": "Teams of 2 to 4 members are allowed. Solo entries may be permitted — check with the organisers."
+    "a": "Each team has 1 to 4 members."
   },
   {
-    "q": "How does Round 1 (online) work?",
-    "a": "In Round 1, teams submit their idea and prototype online by the deadline. Shortlisted teams are invited to Round 2."
+    "q": "What do teams need to submit?",
+    "a": "A presentation made with the official PPT template and a working MVP (Minimum Viable Product) or prototype."
   },
   {
-    "q": "How does Round 2 (offline) work?",
-    "a": "Round 2 takes place at Dayalbagh Educational Institute, Agra. Shortlisted teams present their projects to judges in person."
+    "q": "What are the key dates?",
+    "a": "Registration starts on 18 January. The submission deadline is 30 January. Shortlisted teams are announced on 2 February. The offline final round is on 7 February at Dayalbagh Educational Institute, Agra."
   },
   {
-    "q": "Is accommodation provided?",
-    "a": "Yes, accommodation for Round 2 participants is provided by the college at no extra cost."
+    "q": "How many teams reach the final round?",
+    "a": "10 teams are shortlisted for the offline final round at Dayalbagh Educational Institute, Agra."
+  },
+  {
+    "q": "How are projects judged?",
+    "a": "Innovation and creativity (30%), technical complexity (30%), UX and interactivity (25%), and alignment to the theme (15%)."
+  },
+  {
+    "q": "What are the rewards?",
+    "a": "Each student in the top 3 teams gets an internship at Virtual Labs (MoE, India) with a stipend of ₹15,000 per month. All shortlisted teams receive certificates."
+  },
+  {
+    "q": "Is accommodation provided for the final round?",
+    "a": "Yes. Accommodation for the offline final round is provided by the college."
   },
   {
     "q": "What is Virtual Labs?",
-    "a": "Virtual Labs is an initiative of the Ministry of Education, Govt of India, providing free online lab experiments to students. It is coordinated by IIT Delhi with partner institutes including DEI."
+    "a": "Virtual Labs is an initiative of the Ministry of Education (MoE), Govt of India, under the National Mission on Education through ICT. It gives students remote access to science and engineering lab experiments."
   },
   {
     "q": "Whom do I contact for queries?",
-    "a": "Reach out to the organising committee via email. Contact details will be shared on this page once confirmed."
+    "a": "Email deivlabshackathon@gmail.com, or contact student coordinator Kushak Dohare at +91 7819952826."
   }
 ]

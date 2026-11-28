@@ -1,6 +1,5 @@
-import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useRef, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { LiquidButton } from "./liquid-glass-button";
 
 interface WordsPullUpProps {
@@ -10,72 +9,31 @@ interface WordsPullUpProps {
   style?: CSSProperties;
 }
 
+/**
+ * Word-by-word pull-up reveal, done in CSS (`.pull-up-word` in globals.css)
+ * so the hero needs no animation library. Real spaces sit between the words,
+ * so the heading reads "DEI X VLABS" to search engines and screen readers.
+ */
 export const WordsPullUp = ({ text, className = "", showAsterisk = false, style }: WordsPullUpProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
   const words = text.split(" ");
 
   return (
-    <div ref={ref} className={`inline-flex flex-wrap ${className}`} style={style}>
+    <span className={`inline-flex flex-wrap ${className}`} style={style}>
       {words.map((word, i) => {
         const isLast = i === words.length - 1;
         return (
-          <motion.span
-            key={`${word}-${i}`}
-            initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="relative inline-block"
-            style={{ marginRight: isLast ? 0 : "0.25em" }}
-          >
-            {word}
-            {showAsterisk && isLast && (
-              <span className="absolute -right-[0.3em] top-[0.65em] text-[0.31em]">*</span>
-            )}
-          </motion.span>
+          <span key={`${word}-${i}`} className="contents">
+            <span className="pull-up-word relative inline-block" style={{ animationDelay: `${i * 0.08}s` }}>
+              {word}
+              {showAsterisk && isLast && (
+                <span className="absolute -right-[0.3em] top-[0.65em] text-[0.31em]" aria-hidden="true">*</span>
+              )}
+            </span>
+            {!isLast && <span className="inline-block w-[0.25em]"> </span>}
+          </span>
         );
       })}
-    </div>
-  );
-};
-
-interface Segment {
-  text: string;
-  className?: string;
-}
-
-interface WordsPullUpMultiStyleProps {
-  segments: Segment[];
-  className?: string;
-  style?: CSSProperties;
-}
-
-export const WordsPullUpMultiStyle = ({ segments, className = "", style }: WordsPullUpMultiStyleProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const words: { word: string; className?: string }[] = [];
-
-  segments.forEach((segment) => {
-    segment.text.split(" ").forEach((word) => {
-      if (word) words.push({ word, className: segment.className });
-    });
-  });
-
-  return (
-    <div ref={ref} className={`inline-flex flex-wrap justify-center ${className}`} style={style}>
-      {words.map((word, i) => (
-        <motion.span
-          key={`${word.word}-${i}`}
-          initial={{ y: 20, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className={`inline-block ${word.className ?? ""}`}
-          style={{ marginRight: "0.25em" }}
-        >
-          {word.word}
-        </motion.span>
-      ))}
-    </div>
+    </span>
   );
 };
 
@@ -83,7 +41,7 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Rules & Regulations", href: "#rules" },
   { label: "Themes", href: "#modules" },
-  { label: "Inquiries", href: "mailto:hackathon@dei.ac.in" },
+  { label: "Inquiries", href: "#contact" },
 ];
 
 const PrismaHero = () => {
@@ -102,10 +60,10 @@ const PrismaHero = () => {
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.7] mix-blend-overlay" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
 
-        <div className="hero-logo-box" aria-label="Dayalbagh Educational Institute and Virtual Labs">
-          <img src="/dei-logo.jpeg" alt="Dayalbagh Educational Institute logo" />
+        <div className="hero-logo-box">
+          <img src="/dei-logo.jpeg" alt="Dayalbagh Educational Institute logo" width="225" height="225" decoding="async" />
           <span className="hero-logo-x" aria-hidden="true">×</span>
-          <img src="/vlabs-logo.png" alt="Virtual Labs, an MoE Govt of India initiative logo" />
+          <img src="/vlabs-logo.png" alt="Virtual Labs, an MoE Govt of India initiative logo" width="287" height="176" decoding="async" />
         </div>
 
         <nav className="absolute left-1/2 top-0 z-20 -translate-x-1/2" aria-label="Hero navigation">
@@ -133,29 +91,22 @@ const PrismaHero = () => {
               </h1>
             </div>
             <div className="col-span-12 flex flex-col gap-5 pb-6 lg:col-span-4 lg:pb-10">
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="text-xs leading-[1.2] text-[#e1e0cc]/70 sm:text-sm md:text-base"
+              <p
+                className="pull-up-block text-xs leading-[1.2] text-[#e1e0cc]/70 sm:text-sm md:text-base"
+                style={{ animationDelay: "0.5s" }}
               >
                 DEI x VLABS is a national student hackathon connecting creative problem-solving, engineering, and next-generation virtual laboratories.
-              </motion.p>
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              >
+              </p>
+              <div className="pull-up-block" style={{ animationDelay: "0.7s" }}>
                 <LiquidButton
                   size="xl"
                   type="button"
-                  aria-label="Explore the event and continue down the page"
                   onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Explore the event
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </LiquidButton>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

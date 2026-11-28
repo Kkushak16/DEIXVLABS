@@ -3,6 +3,8 @@ import { CyberButton } from '../components/CyberButton';
 export default function NotFound() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+      <title>Page not found | DEI x VLABS Hackathon &apos;26</title>
+      <meta name="robots" content="noindex, follow" />
       {/* Neon SIGNAL LOST headline */}
       <h1
         className="font-display font-bold text-5xl md:text-7xl text-secondary tracking-tight"

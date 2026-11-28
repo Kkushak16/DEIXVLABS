@@ -27,7 +27,7 @@ export function ParticleHero({
     const container = containerRef.current;
     if (!container) return;
 
-    const particles: HTMLDivElement[] = [];
+    const particles: { el: HTMLDivElement; dampening: number; scale: number }[] = [];
     const rows = Math.max(6, particleCount);
     const totalParticles = rows * rows;
     const fragment = document.createDocumentFragment();
@@ -48,12 +48,15 @@ export function ParticleHero({
       particle.style.transform = `scale(${scale})`;
       particle.style.zIndex = `${Math.round(totalParticles - distance * 5)}`;
       fragment.appendChild(particle);
-      particles.push(particle);
+      particles.push({ el: particle, dampening: Math.max(0.3, 1 - distance * 0.08), scale });
     }
 
     container.replaceChildren(fragment);
     let animationFrame = 0;
+    let running = false;
+    let onScreen = true;
     const startTime = performance.now();
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const animate = (now: number) => {
       const time = (now - startTime) / 1000;
@@ -63,21 +66,35 @@ export function ParticleHero({
       };
       const cursor = autoModeRef.current ? autoCursor : pointerRef.current;
 
-      particles.forEach((particle, index) => {
-        const row = Math.floor(index / rows);
-        const col = index % rows;
-        const distance = Math.hypot(row - (rows - 1) / 2, col - (rows - 1) / 2);
-        const dampening = Math.max(0.3, 1 - distance * 0.08);
-        const scale = Math.max(0.1, 1.2 - distance * 0.12);
-        particle.style.transform = `translate(${cursor.x * dampening}px, ${cursor.y * dampening}px) scale(${scale})`;
-      });
+      for (const { el, dampening, scale } of particles) {
+        el.style.transform = `translate(${cursor.x * dampening}px, ${cursor.y * dampening}px) scale(${scale})`;
+      }
 
       animationFrame = requestAnimationFrame(animate);
     };
 
-    animationFrame = requestAnimationFrame(animate);
+    // Only animate while the field is on screen, the tab is visible and the
+    // user has not asked for reduced motion.
+    const sync = () => {
+      const shouldRun = onScreen && !document.hidden && !reducedMotion.matches;
+      if (shouldRun && !running) animationFrame = requestAnimationFrame(animate);
+      if (!shouldRun && running) cancelAnimationFrame(animationFrame);
+      running = shouldRun;
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      sync();
+    });
+    observer.observe(container);
+    document.addEventListener("visibilitychange", sync);
+    reducedMotion.addEventListener("change", sync);
+    sync();
+
     return () => {
       cancelAnimationFrame(animationFrame);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+      reducedMotion.removeEventListener("change", sync);
       container.replaceChildren();
     };
   }, [particleCount]);

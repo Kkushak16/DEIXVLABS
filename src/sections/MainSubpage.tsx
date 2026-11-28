@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { LiquidButton } from "../components/ui/liquid-glass-button";
 import { ParticleHero } from "../components/ui/animated-hero";
+import { ThemeWarpCarousel } from "../components/ThemeWarpCarousel";
+import faq from "../content/faq.json";
 
 const modules = [
   {
@@ -55,6 +57,29 @@ const judgingCriteria = [
   { title: "Alignment to Theme", percentage: 15 },
 ];
 
+const roadmap = [
+  {
+    date: "18 JAN",
+    title: "Registration Starts",
+    text: "Create your team (1-4 members). Start brainstorming ideas.",
+  },
+  {
+    date: "30 JAN",
+    title: "Submission Deadline",
+    text: "Last date to submit your Presentation & MVP prototype.",
+  },
+  {
+    date: "02 FEB",
+    title: "Shortlist Teams Announcement",
+    text: "10 Teams selected for the Final Round.",
+  },
+  {
+    date: "07 FEB",
+    title: "FINAL ROUND",
+    text: "Offline Hackathon @ Dayalbagh Educational Institute, Agra.",
+  },
+];
+
 export function MainSubpage() {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
 
@@ -70,7 +95,7 @@ export function MainSubpage() {
   }, []);
 
   return (
-    <ParticleHero particleCount={11} className="subpage-particle-hero">
+    <ParticleHero particleCount={18} className="subpage-particle-hero">
     <div id="about" className="main-subpage">
       {showWhatsApp && (
         <a
@@ -89,12 +114,12 @@ export function MainSubpage() {
       <section className="subpage-intro">
         <div className="subpage-grid" aria-hidden="true" />
         <div className="subpage-intro-copy">
-          <h2><span>READY FOR</span><strong>VLABS HACKATHON 2026?</strong></h2>
+           <h2><span>READY FOR</span><strong>VLABS HACKATHON 2026?</strong></h2>
           <div className="subpage-about-grid">
             <article className="subpage-about-card">
               <p className="subpage-eyebrow">ABOUT DAYALBAGH EDUCATIONAL INSTITUTE</p>
-              <p>Dayalbagh Educational Institute (Deemed to be University) is a pioneer in value-based education and innovation. Renowned for its unique work-study ethos and excellence in engineering and science, Dayalbagh Educational Institute stands as a beacon of holistic education in India.</p>
-              <p>Hosting this hackathon, Dayalbagh Educational Institute continues its legacy of integrating technology with societal needs, fostering a culture of &quot;Excellence with Relevance.&quot;</p>
+               <p className="typewriter-reveal">Dayalbagh Educational Institute (Deemed to be University) is a pioneer in value-based education and innovation. Renowned for its unique work-study ethos and excellence in engineering and science, Dayalbagh Educational Institute stands as a beacon of holistic education in India.</p>
+               <p className="typewriter-reveal">Hosting this hackathon, Dayalbagh Educational Institute continues its legacy of integrating technology with societal needs, fostering a culture of &quot;Excellence with Relevance.&quot;</p>
               <LiquidButton
                 size="default"
                 type="button"
@@ -105,8 +130,8 @@ export function MainSubpage() {
             </article>
             <article className="subpage-about-card">
               <p className="subpage-eyebrow">ABOUT VIRTUAL LABS</p>
-              <p>An initiative of the Ministry of Education (MoE), Govt. of India, under the National Mission on Education through ICT.</p>
-              <p>Virtual Labs provide remote-access to Labs in various disciplines of Science and Engineering. This hackathon aims to expand this repository with student-driven, next-gen simulations.</p>
+               <p className="typewriter-reveal">An initiative of the Ministry of Education (MoE), Govt. of India, under the National Mission on Education through ICT.</p>
+               <p className="typewriter-reveal">Virtual Labs provide remote-access to Labs in various disciplines of Science and Engineering. This hackathon aims to expand this repository with student-driven, next-gen simulations.</p>
               <LiquidButton
                 size="default"
                 type="button"
@@ -122,14 +147,14 @@ export function MainSubpage() {
       <section id="rules" className="rules-criteria" aria-label="Rules and judging criteria">
         <div className="rules-panel">
           <p className="subpage-eyebrow">EVENT FRAMEWORK</p>
-          <h2>RULES &amp; REGULATIONS</h2>
+           <h2 className="typewriter-reveal">RULES &amp; REGULATIONS</h2>
           <div className="rules-list">
             {rules.map((rule, index) => (
               <article className="rule-item" key={rule.title}>
                 <span className="rule-number">0{index + 1}</span>
                 <div>
-                  <h3>{rule.title}</h3>
-                  <p>{rule.text}</p>
+                   <h3 className="typewriter-reveal">{rule.title}</h3>
+                   <p className="typewriter-reveal">{rule.text}</p>
                   {rule.title === "Submission Requirement" && (
                     <LiquidButton
                       size="default"
@@ -154,12 +179,29 @@ export function MainSubpage() {
                   <span>{criterion.title}</span>
                   <strong>{criterion.percentage}%</strong>
                 </div>
-                <div className="criterion-track" aria-label={`${criterion.title}: ${criterion.percentage}%`}>
+                <div className="criterion-track" aria-hidden="true">
                   <span style={{ width: `${criterion.percentage}%` }} />
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="roadmap-section" aria-labelledby="roadmap-title">
+        <div className="roadmap-heading">
+          <p className="subpage-eyebrow typewriter-reveal">YOUR EVENT JOURNEY</p>
+          <h2 id="roadmap-title" className="typewriter-reveal">EVENT ROADMAP</h2>
+        </div>
+        <div className="roadmap-3d">
+          {roadmap.map((step, index) => (
+            <article className="roadmap-step-3d" key={step.title}>
+              <span className="roadmap-date typewriter-reveal">{step.date}</span>
+              <div className="roadmap-node" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
+              <h3 className="typewriter-reveal">{step.title}</h3>
+              <p className="typewriter-reveal">{step.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -171,22 +213,7 @@ export function MainSubpage() {
           </div>
           <p>Deploy your strongest ideas into an evolving ecosystem of science, technology, and student-led innovation.</p>
         </div>
-        <div className="module-grid">
-          {modules.map((module) => (
-            <button type="button" className={`module-card theme-card-button module-${module.tone}`} key={module.label} aria-label={module.label}>
-              <div className="module-card-top">
-                <span>{module.label}</span>
-                <span aria-hidden="true">✦</span>
-              </div>
-              <div className="module-visual">
-                <div className="module-lines" aria-hidden="true" />
-                <span>{module.meta}</span>
-              </div>
-              {module.title && <h3>{module.title}</h3>}
-              {module.text && <p>{module.text}</p>}
-            </button>
-          ))}
-        </div>
+        <ThemeWarpCarousel cards={modules.filter((module) => module.title)} />
       </section>
       <section className="rewards-section" aria-labelledby="rewards-title">
         <div className="rewards-heading">
@@ -213,6 +240,20 @@ export function MainSubpage() {
             <h3>Connect with like minded people.</h3>
             <div className="reward-network-lines" aria-hidden="true"><span /><span /><span /></div>
           </article>
+        </div>
+      </section>
+      <section id="faq" className="faq-section" aria-labelledby="faq-title">
+        <div className="faq-heading">
+          <p className="subpage-eyebrow">QUESTIONS // ANSWERS</p>
+          <h2 id="faq-title">FAQ</h2>
+        </div>
+        <div className="faq-list">
+          {faq.map((item) => (
+            <details className="faq-item" key={item.q}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
         </div>
       </section>
       <section className="hall-of-fame" aria-labelledby="hall-of-fame-title">

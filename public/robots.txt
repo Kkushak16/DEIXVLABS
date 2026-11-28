@@ -1,0 +1,7 @@
+# DEI x VLABS Hackathon '26
+# All crawlers, including AI answer engines (GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended), may index the site.
+User-agent: *
+Allow: /
+
+Sitemap: https://deixvlabs.dei.ac.in/sitemap.xml

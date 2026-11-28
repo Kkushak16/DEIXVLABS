@@ -2,9 +2,18 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import tracks from '../content/tracks.json';
 import { Modal } from '../components/Modal';
-import { site } from '../config/site.config';
+import { site, hasRegistrationLink } from '../config/site.config';
 
 type Track = (typeof tracks)[number];
+
+/** Set page title for this route (improves SEO for SPAs) */
+function usePageTitle(title: string) {
+  useEffect(() => {
+    const prev = document.title;
+    document.title = title;
+    return () => { document.title = prev; };
+  }, [title]);
+}
 
 function TrackIcon({ index }: { index: number }) {
   return (
@@ -22,6 +31,7 @@ function TrackIcon({ index }: { index: number }) {
 }
 
 export default function Themes() {
+  usePageTitle("Themes | DEI x VLABS Hackathon '26 Innovation Tracks");
   const [params, setParams] = useSearchParams();
   const [selectedSlug, setSelectedSlug] = useState(params.get('track') || tracks[0].slug);
   const [modalTrack, setModalTrack] = useState<Track | null>(null);
@@ -41,7 +51,7 @@ export default function Themes() {
           <p>Select a domain to explore keynote sessions, technical competitions, and hands-on innovation tracks.</p>
           <div className="diamond-divider"><i /><b /><i /></div>
         </header>
-        <div className="track-grid" role="list" aria-label="Hackathon innovation tracks">
+        <div className="track-grid" role="group" aria-label="Hackathon innovation tracks">
           {tracks.map((track, index) => {
             const active = track.slug === selectedSlug;
             return (
@@ -73,7 +83,11 @@ export default function Themes() {
       <Modal isOpen={Boolean(modalTrack)} onClose={() => setModalTrack(null)} title={modalTrack?.title}>
         {modalTrack && <div className="track-modal">
           <p>{modalTrack.brief}</p>
-          <a href={site.registrationUrl} target="_blank" rel="noreferrer">Register for this track ↗</a>
+          {hasRegistrationLink && (
+            <a href={site.registrationUrl} target="_blank" rel="noopener noreferrer">
+              Register for this track ↗<span className="sr-only"> (opens in new tab)</span>
+            </a>
+          )}
         </div>}
       </Modal>
     </section>
