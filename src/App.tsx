@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
+import { GastlyCursor } from './components/GastlyCursor';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
@@ -23,6 +24,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <GastlyCursor />
     </div>
   );
 }
