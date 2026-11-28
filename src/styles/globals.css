@@ -137,17 +137,6 @@ body {
   background: #0a0f1d;
   color: #f8fafc;
 }
-.app-shell:has(.prisma-hero) > .site-nav { display: none; }
-.app-shell:has(.prisma-hero) > .site-nav {
-  opacity: 0;
-  top: -72px;
-  transition: opacity .3s ease, top .3s ease;
-}
-.app-shell:has(.prisma-hero) > .site-nav.is-scrolled {
-  display: flex;
-  opacity: 1;
-  top: 12px;
-}
 .prisma-hero { background: #11110f; color: #e1e0cc; }
 .noise-overlay {
   background-image:

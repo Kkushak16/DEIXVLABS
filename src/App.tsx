@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 import { GastlyCursor } from './components/GastlyCursor';
@@ -9,9 +9,13 @@ import NotFound from './pages/NotFound';
 const Themes = lazy(() => import('./pages/Themes'));
 
 export default function App() {
+  // The home page has its own hero navigation, so the site nav bar is only shown on other pages.
+  const { pathname } = useLocation();
+  const showNav = pathname !== '/';
+
   return (
     <div className="app-shell">
-      <Nav />
+      {showNav && <Nav />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
